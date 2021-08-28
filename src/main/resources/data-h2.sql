@@ -1,0 +1,2 @@
+INSERT IGNORE INTO `countries` (`id`, `name`, `iso3`, `iso2`, `phonecode`, `capital`, `currency`, `native`, `region`, `subregion`, `emoji`, `emojiU`, `created_at`, `updated_at`, `flag`, `wikiDataId`) VALUES
+(11, 'Argentina', 'ARG', 'AR', '54', 'Buenos Aires', 'ARS', 'Argentina', 'Americas', 'South America', '🇦🇷', 'U+1F1E6 U+1F1F7', '2018-07-20 20:11:03', '2020-10-25 14:35:15', 1, 'Q414'), (207, 'España', 'ESP', 'ES', '34', 'Madrid', 'EUR', 'España', 'Europe', 'Southern Europe', '🇪🇸', 'U+1F1EA U+1F1F8', '2018-07-20 20:11:03', '2020-10-25 14:35:15', 1, 'Q29');

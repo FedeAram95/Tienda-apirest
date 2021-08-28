@@ -1,0 +1,62 @@
+spring:
+  datasource:
+    url: jdbc:mysql://deofis-qa.crhfvajzxctv.eu-west-2.rds.amazonaws.com:3306/deofis_qa
+    username: user_qa
+    password: userqa1224
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initializationMode: always
+    platform: mysql
+    data: classpath:/data-mysql.sql
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  mail:
+    host: smtp.hostinger.com
+    port: 587
+    username: pruebas@wantfrom.es
+    password: ENC(Sek3sZME4ZE9pgxXhARMqEWt0DhsWCQA)
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+            auth: true
+
+endpoints:
+  baseUrl: https://api.qa.deofisdev.online
+  clientUrl: https://wantfrom-tienda.web.app
+
+amazon:
+  s3:
+    bucketName: deofis-dev-bucket
+    endpoint: https://deofis-dev-bucket.s3.eu-west-2.amazonaws.com/
+    accessKey: ENC(fH9vySrU4xPEmDqI0m79/RqQRzrnjiOtpVDTokbfEfg=)
+    secretKey: ENC(vIxqo/d8mOUnpVDQRJlJrD8XooTw8BFBWAcnnpsix8JfWt/M3p5S7Xn08sl2jG3wQYy5GSy7PsU=)
+
+paypal:
+  clientId: AULkwIac0isgBpdaemBxUi7VABSAksciHwhnwbJHh-Och2Kf8qAJ0cwFbYrouVgA5Mqo9fHonoyof3EJ
+  clientSecret: EFoADORBnsYEkgM6YNfTU_pfHu0D8Npi2W8ZFASWysDKWnicY0OQX2sYCyCQs8H7RU9w5bnleMcUP5JP
+
+mercadopago:
+  publicKey: TEST-77c0b8c0-8799-4e10-95f3-bd950c4ea6e8
+  accessKey: TEST-3799743622575463-052116-fc289ecfc550f08fb53f97ad24c646ec-763017235
+
+mail:
+  MAIL_FROM: pruebas@wantfrom.es
+
+jwt:
+  expirationInMillis: 900000
+
+server:
+  port: ${PORT:5000}

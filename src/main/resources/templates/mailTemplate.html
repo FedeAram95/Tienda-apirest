@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Nueva compra</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<style type="text/css">
+		a[x-apple-data-detectors] {color: inherit !important;}
+	</style>
+
+</head>
+<body style="margin: 0; padding: 0;">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td style="padding: 20px 0 30px 0;">
+
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
+					style="border-collapse: collapse; border: 1px solid #cccccc;">
+					<tr>
+						<td align="center" bgcolor="#ffffff" style="padding: 40px 0 30px 0;">
+							<img src="https://i.ibb.co/HqXmZjK/wf.png" alt="Wantfrom" width="200" height="70"
+								style="display: block;" />
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%"
+								style="border-collapse: collapse;">
+								<tr>
+									<td style="color: #153643; font-family: Arial, sans-serif;">
+										<h1 th:text="${title}" style="font-size: 24px; margin: 0;">Título Body</h1>
+									</td>
+								</tr>
+								<tr>
+									<td
+										style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 10px 0;">
+										<p th:text="${message}" style="margin-bottom: 0px;">
+											Mensaje del body
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"
+										style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 5px 0 30px 0;">
+										<a th:if="${url != null}" th:href="${url}" href="#"
+														style="color: white; 
+														background-color: #1f4e84;
+														display: inline-block;
+														padding: .5em .5em;
+														font-family: inherit;
+														font-size: 100%;
+														text-align: center;
+														text-decoration: none;
+														white-space: nowrap;
+														cursor: pointer;
+														border: 1px solid #999;
+														border: transparent;
+														border-radius: 2px;
+														margin: 3px;
+														-webkit-user-drag: none;
+														user-select: none;
+														border-radius: 5px;">
+											Click aqui
+										</a>
+									</td>
+								</tr>
+								<tr th:if="${operacion != null}">
+									<td style="color: #153643; font-family: Arial, sans-serif;">
+										<p>
+											<h3><strong>Operación </strong><strong th:text="${'#' + operacion.nroOperacion + ' - ' + operacion.fechaOperacion.getDay() + ' de ' + month}">#949878412 - 05 de Marzo</strong></h3>
+										</p>
+										<p>
+											<h5>Medio de Pago: <span th:text="${medioPago}">Efectivo</span></h5>
+										</p>
+									</td>
+
+								</tr>
+								<tr th:if="${operacion != null}">
+									<td >
+										<table  border="1" align="center" style="font-family: Arial, sans-serif; border-collapse: collapse;">
+											<tr align="left" style="font-size: 13px; background-color: #1f4e84; color: #ffffff;">
+												<th style="padding: 15px 15px 15px 15px;">Cantidad</th>
+												<th style="padding: 15px 15px 15px 15px;">Producto</th>
+												<th style="padding: 15px 15px 15px 15px;">Propiedades</th>
+												<th style="padding: 15px 15px 15px 15px;">Subtotal</th>
+												<th style="padding: 15px 15px 15px 15px;">Total</th>
+											</tr>
+											<tbody th:remove="tag" th:each="item : ${operacion.items}">
+												<tr style="font-size: 13px;">
+													<td th:text="${item.cantidad}" style="padding: 15px 15px 15px 15px;">2</td>
+													<td th:text="${item.sku.nombre}" style="padding: 15px 15px 15px 15px;">Samsung Galaxy S20</td>
+													<td th:text="${item.sku.valoresData}" style="padding: 15px 15px 15px 15px;">128GB - Negro</td>
+													<td th:text="${'$' + item.precioVenta}" style="padding: 15px 15px 15px 15px;">$600</td>
+													<td th:text="${'$' + item.subtotal}" style="padding: 15px 15px 15px 15px;">$1200</td>
+												</tr>
+											</tbody>
+											<tr style="font-size: 13px;">
+												<td style="border: none;"></td>
+												<td style="border: none;"></td>
+												<td style="border: none;"></td>
+												<td align="center"><strong>Total</strong></td>
+												<td th:text="${'$' + operacion.total}" align="center"><strong>$6000</strong></td>
+											</tr>
+										</table>
+									</td>
+									
+								</tr>
+
+								
+
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#1f4e84" style="padding: 30px 30px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%"
+								style="border-collapse: collapse;">
+								<tr>
+									<td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
+										<p style="margin: 0;">Córdoba, Argentina 2021<br />
+											<a href="#" style="color: #ffffff;">Wantrfom</a>
+										</p>
+									</td>
+									<td align="right">
+										<table border="0" cellpadding="0" cellspacing="0"
+											style="border-collapse: collapse;">
+											<tr>
+												<td>
+													<a href="http://www.facebook.com/">
+														<img src="https://i.ibb.co/CW13zZS/fb5.png" alt="Facebook." width="28" height="28"
+															style="display: block;" border="0" />
+													</a>
+												</td>
+												<td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+												<td>
+													<a href="http://www.instagram.com/">
+														<img src="https://i.ibb.co/RDvyVM3/ig2.png" alt="Instagram." width="28" height="28"
+															style="display: block;" border="0" />
+													</a>
+												</td>
+												<td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+												<td>
+													<a href="https://ar.linkedin.com/">
+														<img src="https://i.ibb.co/CwXkQ5t/linkedin.png" alt="Linkedin." width="32" height="32"
+															style="display: block;" border="0" />
+													</a>
+												</td>
+												
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

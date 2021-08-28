@@ -1,0 +1,63 @@
+spring:
+  profiles:
+    active: staging
+
+  jackson:
+    time-zone: America/Argentina/Cordoba
+    locale: es_AR
+
+  banner:
+    image:
+      location: banner.txt
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 437376322695-88kfc7sukms867avo4em1u5odc35e2ho.apps.googleusercontent.com
+            clientSecret: cUnV76-8QkUq7oFDF7TOynB7
+            redirectUri: "https://api.qa.deofisdev.online/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: 345672336639969
+            clientSecret: b71dcd7364ddb480b0ea89f547dd1598
+            redirectUri: "https://api.qa.deofisdev.online/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - public_profile
+        provider:
+          facebook:
+            authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
+            tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
+            userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+app:
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:4200/oauth2/redirect
+      - https://wantfrom-tienda.web.app/oauth2/redirect
+
+jwt:
+  secretKey: ENC(TKNxJDVZ/6OhE46W6xSXrZskdhO7B8bT)
+
+magicbell:
+  apiKey: 9f2b4034a7bb10808832dcd2ceaf33c9f2148646
+  apiSecret: 22905578a996861ddf8a95fe7a0b59012d89cbe7
+
+jasypt:
+  encryptor:
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    algorithm: PBEWithMD5AndDES
+    password: deofis1224
